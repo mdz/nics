@@ -1,0 +1,12 @@
+White:
+<12> rnbqkbnr pppppppp -------- -------- ----P--- -------- PPPP-PPP RNBQKBNR B 4 1 1 1 1 0 28 GuestSPLZ docz -1 1 0 39 39 60 60 1 P/e2-e4 (0:00) e4 0 0 0
+<12> rnbqkbnr pppp-ppp -------- ----p--- ----P--- -------- PPPP-PPP RNBQKBNR W 4 1 1 1 1 0 28 GuestSPLZ docz 1 1 0 39 39 60 60 2 P/e7-e5 (0:00) e5 0 1 0
+<12> rnbqkbnr pppp-ppp -------- ----p--- ----P--- -----N-- PPPP-PPP RNBQKB-R B -1 1 1 1 1 1 28 GuestSPLZ docz -1 1 0 39 39 52 60 2 N/g1-f3 (0:08) Nf3 0 1 0
+<12> r-bqkbnr pppp-ppp --n----- ----p--- ----P--- -----N-- PPPP-PPP RNBQKB-R W -1 1 1 1 1 2 28 GuestSPLZ docz 1 1 0 39 39 52 57 3 N/b8-c6 (0:03) Nc6 0 1 0
+
+Black:
+<12> rnbqkbnr pppppppp -------- -------- -------- -------- PPPPPPPP RNBQKBNR W -1 1 1 1 1 0 28 GuestSPLZ docz -1 1 0 39 39 60 60 1 none (0:00) none 1 0 0
+<12> rnbqkbnr pppppppp -------- -------- ----P--- -------- PPPP-PPP RNBQKBNR B 4 1 1 1 1 0 28 GuestSPLZ docz 1 1 0 39 39 60 60 1 P/e2-e4 (0:00) e4 1 0 0
+<12> rnbqkbnr pppp-ppp -------- ----p--- ----P--- -------- PPPP-PPP RNBQKBNR W 4 1 1 1 1 0 28 GuestSPLZ docz -1 1 0 39 39 60 60 2 P/e7-e5 (0:00) e5 1 1 0
+<12> rnbqkbnr pppp-ppp -------- ----p--- ----P--- -----N-- PPPP-PPP RNBQKB-R B -1 1 1 1 1 1 28 GuestSPLZ docz 1 1 0 39 39 52 60 2 N/g1-f3 (0:08) Nf3 1 1 0
+<12> r-bqkbnr pppp-ppp --n----- ----p--- ----P--- -----N-- PPPP-PPP RNBQKB-R W -1 1 1 1 1 2 28 GuestSPLZ docz -1 1 0 39 39 52 57 3 N/b8-c6 (0:03) Nc6 1 1 0

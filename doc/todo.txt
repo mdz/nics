@@ -1,0 +1,114 @@
+Sooner:
+- Extensible command processing, parsing (how to resolve NICS vs. FICS
+  protocol?) 
+- Game and UserSession filters / "formula"
+  - define a language and write a parser for it (use guile?)
+  - time control
+  - rating
+  - f-variables (or something better)
+- Make NetworkSession* templates, get rid of sessiontype ugliness
+- Examined games
+- Color switching, rematch
+- Rework Chess vs. Game to have some kind of coherent mechanism for
+  keeping track of the status of the game, both at a generic level (init,
+  in progress, finished) and a game-specific level (winner(s), type of
+  win, etc.)
+- Extensible variant control, each as a seperate module
+	- chess
+	- bughouse
+	- wild
+	- zh
+	- stupid knighttour shit
+- bughouse should be more of a generic function that takes the variant type
+  as well as number of boards.  So we could have quantem :10 0 hourglass 
+  fr 4 board bughouse.
+- Extensible clock control, each time control as a mod
+	- standard (time inc) allowing for sub minute times
+	- hourglass
+	- x moves in y time
+	- x moves in y time, then + z time, sudden death 
+- ECO implementation (can this be stolen from an older FICS, or scid?)
+- NICS protocol
+- Peer-to-peer gaming for new supporting clients
+- Bitboards
+- NO DAV
+- Timeseal or something
+- Ratings and finger notes
+	- what and how do we want to show ratings
+	- How to assign ratings based on game type vs. time control?
+	- Filter rating information based on a gamefilter?
+	- Find math for rating/RD calculation
+
+Libmchess:
+- make parser/lexers reentrant
+- add up material
+- recognize draws
+  - material
+  - 50 move rule
+  - repetition (how?)
+  
+Later:
+- Multiple server connection (Fics Eics ...)
+- Configuration file
+- Rework NICSDatabase to implement a query-level interface, to make it
+  easier to write interfaces to other SQL databases, and to have some
+  infrastructure for thread and connection pooling.  Maybe just use
+  ODBC. Should probably find some way to take advantage of cursors, so
+  we don't have to lock the connection object for as long.  Also, use
+  transactions for operations which affect multiple linked tables.
+- Web accessible
+	- Ratings
+	- Notes
+	- Games
+	- Stats
+- channels (named)
+	- Private channels
+	- uses ctell instead of tell
+- Ban users from obbing your games
+- Stats of user progression over time accessable throuch the web.
+- custom lists (createlist barbiegirl)
+- Ability to add lists to lists (+notify &GM)
+- A super mamer thingy, but one thats not annoying
+- Formula
+	- premove
+	- pingtime
+	- handle
+	- list
+
+
+Much later:
+ 2. Adamf at Tue Jun 19, 16:40 EDT 2001: nics should have a summon command 
+\   that keeps beeping a person in internvals of v_beepinterval
+- libwrap support
+- Performance
+  - Fix ChessMoveAlgebraic to only test legality if the move is
+  ambiguous
+  - Bitboards in ChessPosition
+- recycle accounts
+- 1 time transfer of stats from fics to nics to encourage crossover
+- database expiration (deleted users, old games)
+- display USCF rating (how to authenticate?)
+- Maybe email accounts
+- Redundant servers
+
+
+Ratings
+Chess 		#games blah blah blah		avg rating
+	standard
+	blitz
+	lightning
+	?quantum?
+wild		#games blah blah blah		avg rating
+	fr
+	w2
+	w4
+Bughouse	#games	blah blah blah		avg rating
+	chess
+	wild
+	zh
+	
+So, since there are lots of ratings you can pass a command to finger to get
+what you want.  finger /chess bumbler would just show the chess ratings, 
+finger by itself would just show the avg rating of the grouped catagories.
+Also you should be able to set a variable or formula for your default finger
+display.

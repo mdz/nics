@@ -1,0 +1,14 @@
+[Event "Edited game"]
+[Site "mizar"]
+[Date "2001.04.05"]
+[Round "-"]
+[White "-"]
+[Black "-"]
+[Result "1/2-1/2"]
+
+1. e4 d5 2. exd5 Qxd5 3. d4 Qxd4 4. Qd3 Qxd3 5. f3 Qxf3 6. Be3 Qxe3+ 7. Kd1
+Qxg1 8. Nc3 Qxh1 9. Ne2 Qxg2 10. Kd2 Qxf1 11. Re1 Qxe1+ 12. Kd3 a5 13. Kc4
+Qxe2+ 14. Kd5 Qxc2 15. Kd4 Qxb2+ 16. Kd3 Qxa2 17. Kd4 Qxh2 18. Ke4 a4 19.
+Kd4 a3 20. Ke4 a2 21. Kd4 Ra5 22. Kc4 a1=Q 23. Kb3 Rc5 24. Kb4 Qc2
+{Stalemate} 1/2-1/2
+

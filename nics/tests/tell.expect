@@ -1,0 +1,15 @@
+#!/usr/bin/expect -f
+
+for {} 1 {} {
+    spawn nc localhost 5000
+    expect ogin:
+    send "mdz\r"
+    expect assword:
+    send "test\r"
+    expect ics%
+    send "tell testuser hi\r"
+    expect ics%
+    send "bye\r"
+    expect eof
+    wait
+}

@@ -1,0 +1,27 @@
+#!/usr/bin/expect -f
+
+set user [lrange $argv 0 0]
+set opponent [lrange $argv 1 1]
+
+if {$opponent != {}} {
+    set zgecmd "match $opponent"
+} else {
+    set zgecmd "hello"
+}
+
+spawn xboard -icslogon /dev/null -size Slim -ics -icshost localhost -icsport 5000 -zippyPlay True -fcp crafty -zippyGameEnd "$zgecmd"
+expect ogin:
+sleep 1
+send "$user\r"
+expect word:
+sleep 1
+send "foo\r"
+sleep 1
+if {$opponent != {}} {
+    expect ics%
+    send "match $opponent\r"
+}
+for {} 1 {} {
+  expect -re "(.*)\n"
+  send_user "$expect_out(1,string)\n"
+}

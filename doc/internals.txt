@@ -1,0 +1,4 @@
+Locking hierarchy
+- GameManager may call (and hence lock) SessionManager, but not vice
+  versa (prevent deadlock)
+- Always lock Games before Sessions (same reason)

@@ -1,0 +1,16 @@
+#!/usr/bin/expect -f
+
+set user [lrange $argv 0 0]
+
+for {} 1 {} {
+    spawn nc localhost 5000
+    expect ogin:
+    send "$user\r"
+    expect assword:
+    send "foo\r"
+    expect ics%
+    send "bye\r"
+    expect eof
+    wait
+#    sleep 1
+}

@@ -1,0 +1,24 @@
+[Event "ICS match"]
+[Site "localhost"]
+[Date "2001.04.24"]
+[Round "-"]
+[White "crafty"]
+[Black "crafty2"]
+[Result "*"]
+[TimeControl "3600"]
+
+1. f4 d5 2. e3 Bf5 3. Nf3 e6 4. Be2 Nc6 5. O-O Qf6 6. Bb5 Ne7 7. Nd4 a6 8.
+Ba4 g5 9. fxg5 Qxg5 10. Nxf5 Nxf5 11. Qe2 Bd6 12. Nc3 Rg8 13. Bxc6+ bxc6
+14. d4 c5 15. Qf2 cxd4 16. Nxd5 Qh6 17. Nf4 dxe3 18. Bxe3 O-O-O 19. Rad1
+Nxe3 20. Qxe3 e5 21. Qh3+ Qxh3 22. Nxh3 e4 23. Rde1 Bc5+ 24. Kh1 Rd2 25. g3
+e3 26. Rxf7 Rxc2 27. Nf4 Rf2 28. Rxh7 Bb4 29. Rc1 Bd6 30. Ne6 e2 31. Kg1
+Rf6 32. Nxc7 Bf4 33. Re1 Bxc7 34. Rxe2 Kb7 35. Rhe7 Rgf8 36. Kg2 Rg6 37. b4
+Rb6 38. a3 Rg6 39. R2e5 Rd6 40. h4 Rd3 41. Re3 Rd2+ 42. Kh3 Rf6 43. h5 Rc2
+44. Kg4 Rh6 45. Kg5 Rcc6 46. g4 Kb6 47. Rf7 Rcd6 48. Rf8 a5 49. Rc8 axb4
+50. axb4 Rdf6 51. Rf3 Re6 52. Re3 Ref6 53. Rf3 Re6 54. Re3 Ref6 55. Re4 Bg3
+56. Rc5 Rd6 57. Rc3 Bf2 58. Rf3 Bg1 59. Rd3 Rc6 60. Rf4 Rhe6 61. Rf8 Re5+
+62. Kf4 Bh2+ 63. Kf3 Rb5 64. Rd2 Be5 65. g5 Rxb4 66. h6 Rc3+ 67. Kf2 Rh4
+68. Rb2+ Kc7 69. Rf7+ Kd6 70. Rb6+ Kc5 71. Re6 Kd5 72. Rfe7 Rh2+ 73. Kg1
+Rc1#
+*
+

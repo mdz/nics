@@ -1,0 +1,7 @@
+Makefile
+Makefile.in
+alg_parse.cc
+alg_parse.h
+pgn_parse.cc
+pgn_parse.h
+PGNLexer.cc

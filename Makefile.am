@@ -1,0 +1,3 @@
+SUBDIRS = libmchess nics tests
+
+EXTRA_DIST = COPYING.GPL COPYING.LGPL

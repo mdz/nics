@@ -1,0 +1,4 @@
+sessions must be able to be locked individually
+sessionmanager/session locking must not cause deadlock
+a locked session may not be destroyed
+

@@ -1,0 +1,118 @@
+template<class X> class shared_ptr {
+
+public:
+	explicit shared_ptr( X* ptr ) {
+		pthread_mutex_init( &ptr_mutex );
+		pthread_mutex_lock( &ptr_mutex );
+		shared = new shared_info( ptr );
+		pthread_mutex_unlock( &ptr_mutex );
+	};
+
+	~shared_ptr( void ) {
+		release();
+		pthread_mutex_destroy( &ptr_mutex );
+	};
+
+	shared_ptr( shared_ptr<X>& ptr ) {
+		pthread_mutex_init( &ptr_mutex );
+		pthread_mutex_lock( &ptr_mutex );
+		shared = ptr.acquire();
+		pthread_mutex_unlock( &ptr_mutex );
+	};
+
+	shared_ptr<X>& operator= ( const shared_ptr<X>& ptr ) {
+		if ( this != ptr ) {
+			release();
+			pthread_mutex_lock( &ptr_mutex );
+			shared = ptr.acquire();
+			pthread_mutex_unlock( &ptr_mutex );
+		}
+
+		return *this;
+	};
+
+	X& operator* ( void ) const {
+		return *shared->ptr;
+	};
+
+	X* operator-> ( void ) const {
+		return shared->ptr;
+	};
+
+	X* get( void ) const {
+		if ( shared ) {
+			return shared->ptr;
+		} else {
+			return 0;
+		}
+	};
+
+protected:
+	shared_info* acquire() {
+		shared_info* ret = 0;
+
+		pthread_mutex_lock( &ptr_mutex );
+		if ( shared ) {
+			pthread_mutex_lock( &shared->mutex );
+			++shared->count;
+			ret = shared;			
+			pthread_mutex_unlock( &shared->mutex );
+		}
+		pthead_mutex_unlock( &ptr_mutex );
+
+		return ret;
+	};
+
+	void release( void ) {
+
+		pthread_mutex_lock( &ptr_mutex );
+		if ( shared ) {
+			bool nuked = false;
+			pthread_mutex_lock( &shared->mutex );
+			if ( shared->count ) {
+				if ( --shared->count == 0 ) {
+					pthread_mutex_unlock( &shared->mutex );
+					delete shared;
+					nuked = true;
+				}
+			}
+
+			if ( !nuked ) {
+				pthread_mutex_unlock( &shared->mutex );
+			}
+
+			shared = 0;
+		}
+		pthread_mutex_unlock( &ptr_mutex );
+	};
+
+protected:
+
+		//
+		// this mutex is only needed if multiple threads will
+		// be accessing the same smart pointer.  It's probably
+		// safer to keep this.
+		//
+	pthread_mutex_t ptr_mutex;
+
+	struct shared_info
+	{
+		explicit shared_info( X* _ptr ) {
+			ptr = _ptr;
+			count = 1;
+			pthread_mutex_init( &mutex );
+		};
+
+		~shared_info() {
+			delete ptr;
+			pthread_mutex_destroy( &mutex );
+		};
+
+		X* ptr;
+		unsigned int count;
+		pthread_mutex_t mutex;
+	} *shared;
+};
+
+	alter,
+	Patrick

@@ -1,0 +1,37 @@
+UserSession:
+Run() process commands from user
+send_refresh(game) request a board update from game
+send_message(blah) display a status message
+end() end the session as soon as possible
+game_filter() access user's game filter
+
+Game:
+make_move(player, move) make a move for player
+get_board(user, relationship, style) get a board representation
+info() get textual information about the game
+save() save the game
+resign(player) player resigns
+start() begin the game
+end() end the game
+time() time control info
+
+SessionManager:
+register_session(), unregister_session()
+tell(from, to, message) send a tell
+send_message(user, blah) send a status message to user
+send_offer(offer) announce an offer to applicable users
+find_session(blah) find a user's session
+
+GameManager:
+register_game(), unregister_game()
+join(game, session, rel) join a game
+leave(game, session) leave a game
+refresh(game) refresh a game for all players
+refresh(game, session) refresh only a single player
+resign(game, session) resign game for player
+make_move(game, session, move) make a move for player
+
+TODO:
+eliminate registration for games, since they are only started by
+GameManager.  Just have GameManager put them in the list and tell them
+their ID.

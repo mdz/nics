@@ -1,0 +1,68 @@
+%pure_parser
+
+%nonassoc '|' '&'
+%nonassoc '<' '>' '=' NE LE GE
+%left '-' '+'
+%left '*' '/'
+
+%type <b> input
+%token <b> bool_var
+%type <b> boolexp
+%type <i> numexp
+%token <i> num_var
+%token <i> num
+%token <str> str_const
+%token <str> str_var
+%type <str> str
+
+%{
+#include <cstdlib>
+int yyerror(char*);
+int yylex(YYSTYPE* lvalp, void* parser);
+
+#define YYPARSE_PARAM parser
+#define YYLEX_PARAM parser
+
+%}
+
+%%
+input:	/* empty */		{ $$ = true; }
+	| boolexp      		{ $$ = $1; }
+;
+
+boolexp: numexp			{ $$ = ($1 != 0); }
+	| '(' boolexp ')'      	{ $$ = $2; };
+        | boolexp '&' boolexp   { $$ = ($1 && $3); }
+	| boolexp '|' boolexp	{ $$ = ($1 || $3); }
+	| numexp '=' numexp	{ $$ = ($1 == $3); }
+	| numexp '<' numexp	{ $$ = ($1 < $3); }
+	| numexp '>' numexp	{ $$ = ($1 > $3); }
+	| numexp NE numexp	{ $$ = ($1 != $3); }
+	| numexp LE numexp	{ $$ = ($1 <= $3); }
+	| numexp GE numexp	{ $$ = ($1 >= $3); }
+	| str '=' str		{ $$ = ($1 == $3); }
+	| str NE str		{ $$ = ($1 != $3); }
+	| bool_var		{ $$ = $1; }
+;
+
+str: str_const			{ $$ = $1; }
+	| str_var		{ $$ = $1; }
+;
+
+numexp:	num			{ $$ = $1;	}
+	| numexp '+' numexp	{ $$ = $1 + $3; }
+	| numexp '-' numexp	{ $$ = $1 - $3; }
+	| numexp '*' numexp	{ $$ = $1 * $3; }
+	| numexp '/' numexp	{ $$ = $1 / $3; }
+	| num_var		{ $$ = $1; }
+;
+
+%%
+
+int yyerror(char* s) {
+  return 0;
+}
+
+int yylex(YYSTYPE* lvalp, void* parser) {
+  return 0;
+}

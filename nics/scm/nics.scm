@@ -1,0 +1,10 @@
+(define-class <player> ()
+  (name #:accessor name)
+  (ratings #:accessor ratings)
+  (attributes #:accessor attributes))
+
+(define-class <game> ()
+  (variant #:accessor variant)
+  (time #:accessor time)
+  (increment #:accessor increment)
+  (attributes #:accessor attributes))
